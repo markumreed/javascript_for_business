@@ -1,0 +1,275 @@
+---
+title: "JavaScript Basic Syntax"
+subtitle: "Introduction to JavaScript Variables, Data Types, and Operators"
+author: "Markum Reed, Ph.D."
+format: pptx
+output: 
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Introduction
+
+This tutorial will cover the basics of JavaScript syntax, including variables, data types, and operators, using business case examples. By understanding these fundamental concepts, you can start creating dynamic and interactive web applications tailored to business scenarios.
+
+---
+
+# Variables
+
+Variables are used to store data values. In JavaScript, you can declare variables using `var`, `let`, or `const`.
+
+## `var`
+
+- **Scope**: `var` is function-scoped, meaning it is accessible within the function it is declared in. If declared outside a function, it becomes global-scoped.
+- **Redeclaration**: `var` can be re-declared and updated within its scope.
+
+---
+
+## Example  
+Imagine you need to track the total sales of a product in a month.
+
+```javascript
+var totalSales = 5000; // Initial total sales
+console.log(totalSales); // Output: 5000
+
+// Updating the total sales
+totalSales = 7000;
+console.log(totalSales); // Output: 7000
+```
+
+## Explanation 
+In this example, `totalSales` is a variable declared with `var`. Initially, it holds the value `5000`. As sales continue, we update `totalSales` to `7000`.
+
+---
+
+## `let`
+
+- **Scope**: `let` is block-scoped, meaning it is only accessible within the block (e.g., within `{}`) it is declared in.
+- **Redeclaration**: `let` cannot be re-declared within the same scope but can be updated.
+
+---
+
+## Example  
+Suppose you need to calculate the monthly profit for different branches of your business.
+
+```javascript
+let branch1Profit = 2000;
+let branch2Profit = 3000;
+console.log(branch1Profit, branch2Profit); // Output: 2000 3000
+
+// Updating the profit values
+branch1Profit = 2500;
+branch2Profit = 3500;
+console.log(branch1Profit, branch2Profit); // Output: 2500 3500
+```
+
+## Explanation 
+`branch1Profit` and `branch2Profit` are variables declared with `let`. They store the profit for two different branches. They can be updated within their scope.
+
+---
+
+## `const`
+
+- **Scope**: `const` is block-scoped, like `let`.
+- **Redeclaration and Update**: `const` cannot be re-declared or updated. It is used to declare constants whose values should not change.
+
+---
+
+## Example  
+Consider a scenario where you need to define the company name and tax rate, which do not change.
+
+```javascript
+const companyName = "Tech Corp";
+const taxRate = 0.18;
+console.log(companyName, taxRate); // Output: Tech Corp 0.18
+```
+
+## Explanation 
+`companyName` and `taxRate` are declared with `const` because these values are constant and should not change.
+
+---
+
+# Data Types
+
+JavaScript supports various data types, which help in managing different kinds of data effectively.
+
+## Primitive Data Types
+
+- **Number**: Represents both integer and floating-point numbers.
+- **String**: Represents a sequence of characters.
+- **Boolean**: Represents logical values, `true` or `false`.
+- **Undefined**: Indicates a variable that has been declared but not yet assigned a value.
+- **Null**: Represents the intentional absence of any object value.
+- **Symbol**: Represents a unique and immutable identifier.
+
+---
+
+## Example  
+Manage data about a product in an inventory system.
+
+```javascript
+let productID = 101; // Number
+let productName = "Laptop"; // String
+let inStock = true; // Boolean
+let discount; // Undefined
+let discontinuedProduct = null; // Null
+let uniqueID = Symbol('id'); // Symbol
+
+console.log(productID, productName, inStock, discount, discontinuedProduct, uniqueID);
+// Output: 101 Laptop true undefined null Symbol(id)
+```
+
+---
+
+## Complex Data Types
+
+- **Object**: Used to store collections of data and more complex entities.
+- **Array**: Used to store multiple values in a single variable.
+
+---
+
+## Example  
+Store detailed information about an employee and a list of products in an order.
+
+```javascript
+// Object for employee details
+let employee = {
+    name: "Jane Smith",
+    position: "Manager",
+    department: "Sales",
+    salary: 75000
+};
+
+// Array for list of products in an order
+let order = ["Laptop", "Mouse", "Keyboard"];
+
+console.log(employee); // Output: { name: 'Jane Smith', position: 'Manager', department: 'Sales', salary: 75000 }
+console.log(order); // Output: [ 'Laptop', 'Mouse', 'Keyboard' ]
+```
+
+---
+
+# Operators
+
+Operators are used to perform operations on variables and values, essential for manipulating data and making decisions.
+
+## Arithmetic Operators
+
+Perform mathematical calculations.
+
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+- Modulus (Remainder): `%`
+
+---
+
+## Example  
+Calculate the total revenue from two different products.
+
+```javascript
+let product1Revenue = 5000;
+let product2Revenue = 3000;
+let totalRevenue = product1Revenue + product2Revenue;
+
+console.log("Total Revenue:", totalRevenue); // Output: Total Revenue: 8000
+```
+
+---
+
+## Assignment Operators
+
+Assign values to variables.
+
+- Assignment: `=`
+- Addition Assignment: `+=`
+- Subtraction Assignment: `-=`
+- Multiplication Assignment: `*=`
+- Division Assignment: `/=`
+
+---
+
+## Example  
+Update the monthly profit of a branch.
+
+```javascript
+let monthlyProfit = 2000;
+console.log("Initial Profit:", monthlyProfit); // Output: Initial Profit: 2000
+
+// Updating the profit values
+monthlyProfit += 500; // monthlyProfit = monthlyProfit + 500
+console.log("Updated Profit:", monthlyProfit); // Output: Updated Profit: 2500
+```
+
+---
+
+## Comparison Operators
+
+Compare two values and return a boolean.
+
+- Equal to: `==`
+- Strict equal to: `===`
+- Not equal to: `!=`
+- Strict not equal to: `!==`
+- Greater than: `>`
+- Less than: `<`
+- Greater than or equal to: `>=`
+- Less than or equal to: `<=`
+
+---
+
+## Example  
+Compare the sales figures of two products.
+
+```javascript
+let product1Sales = 10000;
+let product2Sales = 8000;
+
+console.log(product1Sales > product2Sales); // Output: true
+console.log(product1Sales === product2Sales); // Output: false
+```
+
+---
+
+## Logical Operators
+
+Used to combine multiple conditions.
+
+- AND: `&&`
+- OR: `||`
+- NOT: `!`
+
+---
+
+## Example  
+Check if a product is in stock and if it is on sale.
+
+```javascript
+let inStock = true;
+let onSale = false;
+
+console.log(inStock && onSale); // Output: false (both conditions need to be true)
+console.log(inStock || onSale); // Output: true (at least one condition needs to be true)
+console.log(!inStock); // Output: false (negates the boolean value)
+```
+
+---
+
+# Conclusion
+
+By understanding variables, data types, and operators in JavaScript through these business-related examples, you can create dynamic and interactive web applications that handle real-world business scenarios effectively. Practice these concepts to build a strong foundation in JavaScript programming.
+
+---
+
+# Further Reading
+
+- [MDN Web Docs: JavaScript Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
+- [JavaScript.info: Variables](https://javascript.info/variables)
+- [Eloquent JavaScript: Data Types](https://eloquentjavascript.net/01_values.html)
+- [MDN Web Docs: Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+

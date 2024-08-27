@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.45">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>basic_syntax</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="02_basic_syntax_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02_basic_syntax_files/libs/quarto-html/quarto.js"></script>
+<script src="02_basic_syntax_files/libs/quarto-html/popper.min.js"></script>
+<script src="02_basic_syntax_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="02_basic_syntax_files/libs/quarto-html/anchor.min.js"></script>
+<link href="02_basic_syntax_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02_basic_syntax_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="02_basic_syntax_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="02_basic_syntax_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="02_basic_syntax_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="javascript-basic-syntax" class="level1">
+<h1>JavaScript Basic Syntax</h1>
+<section id="introduction" class="level4">
+<h4 class="anchored" data-anchor-id="introduction">Introduction</h4>
+<p>This tutorial will cover the basics of JavaScript syntax, including variables, data types, and operators, using business case examples. By understanding these fundamental concepts, you can start creating dynamic and interactive web applications tailored to business scenarios.</p>
+</section>
+<section id="variables" class="level4">
+<h4 class="anchored" data-anchor-id="variables">Variables</h4>
+<p>Variables are used to store data values. In JavaScript, you can declare variables using <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+<section id="var" class="level5">
+<h5 class="anchored" data-anchor-id="var">1. <code>var</code></h5>
+<ul>
+<li><strong>Scope</strong>: <code>var</code> is function-scoped, meaning it is accessible within the function it is declared in. If declared outside a function, it becomes global-scoped.</li>
+<li><strong>Redeclaration</strong>: <code>var</code> can be re-declared and updated within its scope.</li>
+</ul>
+<p><strong>Example</strong>: Imagine you need to track the total sales of a product in a month.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> totalSales <span class="op">=</span> <span class="dv">5000</span><span class="op">;</span> <span class="co">// Initial total sales</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(totalSales)<span class="op">;</span> <span class="co">// Output: 5000</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Updating the total sales</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>totalSales <span class="op">=</span> <span class="dv">7000</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(totalSales)<span class="op">;</span> <span class="co">// Output: 7000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, <code>totalSales</code> is a variable declared with <code>var</code>. Initially, it holds the value <code>5000</code>, representing the total sales amount at the beginning of the month. As sales continue, we update <code>totalSales</code> to <code>7000</code>, reflecting the new sales total. The <code>console.log</code> statements are used to print the value of <code>totalSales</code> before and after updating it, showing how its value changes over time.</p>
+</section>
+<section id="let" class="level5">
+<h5 class="anchored" data-anchor-id="let">2. <code>let</code></h5>
+<ul>
+<li><strong>Scope</strong>: <code>let</code> is block-scoped, meaning it is only accessible within the block (e.g., within <code>{}</code>) it is declared in.</li>
+<li><strong>Redeclaration</strong>: <code>let</code> cannot be re-declared within the same scope but can be updated.</li>
+</ul>
+<p><strong>Example</strong>: Suppose you need to calculate the monthly profit for different branches of your business.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> branch1Profit <span class="op">=</span> <span class="dv">2000</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> branch2Profit <span class="op">=</span> <span class="dv">3000</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(branch1Profit<span class="op">,</span> branch2Profit)<span class="op">;</span> <span class="co">// Output: 2000 3000</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Updating the profit values</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>branch1Profit <span class="op">=</span> <span class="dv">2500</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>branch2Profit <span class="op">=</span> <span class="dv">3500</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(branch1Profit<span class="op">,</span> branch2Profit)<span class="op">;</span> <span class="co">// Output: 2500 3500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, <code>branch1Profit</code> and <code>branch2Profit</code> are variables declared with <code>let</code>. They store the profit for two different branches. Initially, <code>branch1Profit</code> is <code>2000</code> and <code>branch2Profit</code> is <code>3000</code>. As new profit data comes in, we update these values to <code>2500</code> and <code>3500</code>, respectively. The <code>console.log</code> statements display the profit values before and after the update, demonstrating how <code>let</code> allows for updating values within their scope.</p>
+</section>
+<section id="const" class="level5">
+<h5 class="anchored" data-anchor-id="const">3. <code>const</code></h5>
+<ul>
+<li><strong>Scope</strong>: <code>const</code> is block-scoped, like <code>let</code>.</li>
+<li><strong>Redeclaration and Update</strong>: <code>const</code> cannot be re-declared or updated. It is used to declare constants whose values should not change.</li>
+</ul>
+<p><strong>Example</strong>: Consider a scenario where you need to define the company name and tax rate, which do not change.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> companyName <span class="op">=</span> <span class="st">"Tech Corp"</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> taxRate <span class="op">=</span> <span class="fl">0.18</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(companyName<span class="op">,</span> taxRate)<span class="op">;</span> <span class="co">// Output: Tech Corp 0.18</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Attempting to update const variables will result in an error</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">// companyName = "New Tech Corp"; // Error: Assignment to constant variable.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, <code>companyName</code> and <code>taxRate</code> are declared with <code>const</code> because these values are constant and should not change throughout the program. <code>companyName</code> is set to “Tech Corp”, and <code>taxRate</code> is set to <code>0.18</code> (18%). Attempting to reassign a value to a <code>const</code> variable will result in an error, which ensures that these constants remain unchanged, providing stability and predictability in the code.</p>
+</section>
+</section>
+<section id="data-types" class="level4">
+<h4 class="anchored" data-anchor-id="data-types">Data Types</h4>
+<p>JavaScript supports various data types, which help in managing different kinds of data effectively.</p>
+<section id="primitive-data-types" class="level5">
+<h5 class="anchored" data-anchor-id="primitive-data-types">1. Primitive Data Types</h5>
+<ul>
+<li><strong>Number</strong>: Represents both integer and floating-point numbers.</li>
+<li><strong>String</strong>: Represents a sequence of characters.</li>
+<li><strong>Boolean</strong>: Represents logical values, <code>true</code> or <code>false</code>.</li>
+<li><strong>Undefined</strong>: Indicates a variable that has been declared but not yet assigned a value.</li>
+<li><strong>Null</strong>: Represents the intentional absence of any object value.</li>
+<li><strong>Symbol</strong>: Represents a unique and immutable identifier.</li>
+</ul>
+<p><strong>Example</strong>: Suppose you need to manage data about a product in an inventory system.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> productID <span class="op">=</span> <span class="dv">101</span><span class="op">;</span> <span class="co">// Number</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> productName <span class="op">=</span> <span class="st">"Laptop"</span><span class="op">;</span> <span class="co">// String</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> inStock <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// Boolean</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> discount<span class="op">;</span> <span class="co">// Undefined</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> discontinuedProduct <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// Null</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> uniqueID <span class="op">=</span> <span class="bu">Symbol</span>(<span class="st">'id'</span>)<span class="op">;</span> <span class="co">// Symbol</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(productID<span class="op">,</span> productName<span class="op">,</span> inStock<span class="op">,</span> discount<span class="op">,</span> discontinuedProduct<span class="op">,</span> uniqueID)<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Output: 101 Laptop true undefined null Symbol(id)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, various data types are used to represent different attributes of a product in an inventory system. <code>productID</code> is a number representing the product’s identifier, <code>productName</code> is a string containing the product’s name, and <code>inStock</code> is a boolean indicating whether the product is available. <code>discount</code> is undefined, showing it has been declared but not assigned a value. <code>discontinuedProduct</code> is set to <code>null</code>, indicating the product is intentionally absent. Finally, <code>uniqueID</code> is a symbol providing a unique identifier for the product.</p>
+</section>
+<section id="complex-data-types" class="level5">
+<h5 class="anchored" data-anchor-id="complex-data-types">2. Complex Data Types</h5>
+<ul>
+<li><strong>Object</strong>: Used to store collections of data and more complex entities.</li>
+<li><strong>Array</strong>: Used to store multiple values in a single variable.</li>
+</ul>
+<p><strong>Example</strong>: Imagine you need to store detailed information about an employee and a list of products in an order.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Object for employee details</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> employee <span class="op">=</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Jane Smith"</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">position</span><span class="op">:</span> <span class="st">"Manager"</span><span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">department</span><span class="op">:</span> <span class="st">"Sales"</span><span class="op">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">salary</span><span class="op">:</span> <span class="dv">75000</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Array for list of products in an order</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> order <span class="op">=</span> [<span class="st">"Laptop"</span><span class="op">,</span> <span class="st">"Mouse"</span><span class="op">,</span> <span class="st">"Keyboard"</span>]<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employee)<span class="op">;</span> <span class="co">// Output: { name: 'Jane Smith', position: 'Manager', department: 'Sales', salary: 75000 }</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(order)<span class="op">;</span> <span class="co">// Output: [ 'Laptop', 'Mouse', 'Keyboard' ]</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing object properties</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employee<span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// Output: Jane Smith</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing array elements</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(order[<span class="dv">0</span>])<span class="op">;</span> <span class="co">// Output: Laptop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, the <code>employee</code> object stores detailed information about an employee, including their name, position, department, and salary. The <code>order</code> array contains a list of products in an order. Using <code>console.log</code>, we print the entire <code>employee</code> object and <code>order</code> array. Additionally, we access individual properties of the <code>employee</code> object and elements of the <code>order</code> array using dot notation and bracket notation, respectively. This demonstrates how objects and arrays can be used to manage complex data structures in a business context.</p>
+</section>
+</section>
+<section id="operators" class="level4">
+<h4 class="anchored" data-anchor-id="operators">Operators</h4>
+<p>Operators are used to perform operations on variables and values, essential for manipulating data and making decisions.</p>
+<section id="arithmetic-operators" class="level5">
+<h5 class="anchored" data-anchor-id="arithmetic-operators">1. Arithmetic Operators</h5>
+<p>Perform mathematical calculations.</p>
+<ul>
+<li>Addition: <code>+</code></li>
+<li>Subtraction: <code>-</code></li>
+<li>Multiplication: <code>*</code></li>
+<li>Division: <code>/</code></li>
+<li>Modulus (Remainder): <code>%</code></li>
+</ul>
+<p><strong>Example</strong>: Suppose you need to calculate the total revenue from two different products.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product1Revenue <span class="op">=</span> <span class="dv">5000</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product2Revenue <span class="op">=</span> <span class="dv">3000</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> totalRevenue <span class="op">=</span> product1Revenue <span class="op">+</span> product2Revenue<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Total Revenue:"</span><span class="op">,</span> totalRevenue)<span class="op">;</span> <span class="co">// Output: Total Revenue: 8000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, arithmetic operators are used to calculate the total revenue from two products. <code>product1Revenue</code> and <code>product2Revenue</code> represent the revenue generated by two different products. By adding these values using the <code>+</code> operator, we calculate the <code>totalRevenue</code>. The <code>console.log</code> statement prints the total revenue, showing how arithmetic operations can be used to perform financial calculations in a business setting.</p>
+</section>
+<section id="assignment-operators" class="level5">
+<h5 class="anchored" data-anchor-id="assignment-operators">2. Assignment Operators</h5>
+<p>Assign values to variables.</p>
+<ul>
+<li>Assignment: <code>=</code></li>
+<li>Addition Assignment: <code>+=</code></li>
+<li>Subtraction Assignment: <code>-=</code></li>
+<li>Multiplication Assignment: <code>*=</code></li>
+<li>Division Assignment: <code>/=</code></li>
+</ul>
+<p><strong>Example</strong>: Imagine you need to update the monthly profit of a branch.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> monthlyProfit <span class="op">=</span> <span class="dv">2000</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Initial Profit:"</span><span class="op">,</span> monthlyProfit)<span class="op">;</span> <span class="co">// Output: Initial Profit: 2000</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Updating the profit values</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>monthlyProfit <span class="op">+=</span> <span class="dv">500</span><span class="op">;</span> <span class="co">// monthlyProfit = monthlyProfit + 500</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Updated Profit:"</span><span class="op">,</span> monthlyProfit)<span class="op">;</span> <span class="co">// Output: Updated Profit: 2500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, the addition assignment operator (<code>+=</code>) is used to update the monthly profit value. <code>monthlyProfit</code> is initially set to <code>2000</code>. By using <code>monthlyProfit += 500</code>, we increase the profit by <code>500</code>, resulting in a new value of <code>2500</code>. The <code>console.log</code> statements display the profit before and after the update, illustrating how assignment operators can be used to efficiently update variable values in financial calculations.</p>
+</section>
+<section id="comparison-operators" class="level5">
+<h5 class="anchored" data-anchor-id="comparison-operators">3. Comparison Operators</h5>
+<p>Compare two values and return a boolean.</p>
+<ul>
+<li>Equal to: <code>==</code></li>
+<li>Strict equal to: <code>===</code></li>
+<li>Not equal to: <code>!=</code></li>
+<li>Strict not equal to: <code>!==</code></li>
+<li>Greater than: <code>&gt;</code></li>
+<li>Less than: <code>&lt;</code></li>
+<li>Greater than or equal to: <code>&gt;=</code></li>
+<li>Less than or equal to: <code>&lt;=</code></li>
+</ul>
+<p><strong>Example</strong>:</p>
+<p>Suppose you need to compare the sales figures of two products.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product1Sales <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product2Sales <span class="op">=</span> <span class="dv">8000</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product1Sales <span class="op">&gt;</span> product2Sales)<span class="op">;</span> <span class="co">// Output: true</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product1Sales <span class="op">===</span> product2Sales)<span class="op">;</span> <span class="co">// Output: false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, comparison operators are used to compare the sales figures of two products. <code>product1Sales</code> and <code>product2Sales</code> represent the sales figures for two different products. Using the <code>&gt;</code> operator, we check if <code>product1Sales</code> is greater than <code>product2Sales</code>, which returns <code>true</code>. Using the <code>===</code> operator, we check if <code>product1Sales</code> is strictly equal to <code>product2Sales</code>, which returns <code>false</code>. The <code>console.log</code> statements display the results of these comparisons, demonstrating how comparison operators can be used to make decisions based on sales data.</p>
+</section>
+<section id="logical-operators" class="level5">
+<h5 class="anchored" data-anchor-id="logical-operators">4. Logical Operators</h5>
+<p>Used to combine multiple conditions.</p>
+<ul>
+<li>AND: <code>&amp;&amp;</code></li>
+<li>OR: <code>||</code></li>
+<li>NOT: <code>!</code></li>
+</ul>
+<p><strong>Example</strong>: Consider a scenario where you need to check if a product is in stock and if it is on sale.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> inStock <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> onSale <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(inStock <span class="op">&amp;&amp;</span> onSale)<span class="op">;</span> <span class="co">// Output: false (both conditions need to be true)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(inStock <span class="op">||</span> onSale)<span class="op">;</span> <span class="co">// Output: true (at least one condition needs to be true)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="op">!</span>inStock)<span class="op">;</span> <span class="co">// Output: false (negates the boolean value)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation</strong>: In this example, logical operators are used to combine conditions related to a product’s availability and sale status. <code>inStock</code> and <code>onSale</code> are boolean variables indicating whether a product is in stock and on sale, respectively. Using the <code>&amp;&amp;</code> operator, we check if both conditions are true, which returns <code>false</code> because <code>onSale</code> is <code>false</code>. Using the <code>||</code> operator, we check if at least one condition is true, which returns <code>true</code> because <code>inStock</code> is <code>true</code>. Using the <code>!</code> operator, we negate the value of <code>inStock</code>, which returns <code>false</code>. The <code>console.log</code> statements display the results of these logical operations, illustrating how logical operators can be used to evaluate multiple conditions in business scenarios.</p>
+</section>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>By understanding variables, data types, and operators in JavaScript through these business-related examples, you can create dynamic and interactive web applications that handle real-world business scenarios effectively. Practice these concepts to build a strong foundation in JavaScript programming.</p>
+</section>
+<section id="further-reading" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading">Further Reading</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">MDN Web Docs: JavaScript Basics</a></li>
+<li><a href="https://javascript.info/variables">JavaScript.info: Variables</a></li>
+<li><a href="https://eloquentjavascript.net/01_values.html">Eloquent JavaScript: Data Types</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN Web Docs: Operators</a></li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
