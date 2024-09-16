@@ -82,196 +82,240 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="javascript-tutorial-working-with-objects" class="level1">
 <h1>JavaScript Tutorial: Working with Objects</h1>
-<p>In JavaScript, objects are one of the most important and versatile data types. They are used to store collections of key-value pairs, making them incredibly useful for modeling real-world entities such as customers, products, and orders in business applications. In this tutorial, we’ll explore how to use objects in JavaScript, including how to define them, access their properties, and use methods to perform actions.</p>
-<section id="what-is-an-object-in-javascript" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-an-object-in-javascript">What is an Object in JavaScript?</h2>
-<p>An object in JavaScript is a collection of related data and functionality. Objects are made up of properties and methods. A <strong>property</strong> is a key-value pair, and a <strong>method</strong> is a function associated with an object.</p>
-<section id="creating-an-object" class="level3">
-<h3 class="anchored" data-anchor-id="creating-an-object">Creating an Object</h3>
-<p>You can create an object using object literals or using the <code>new Object()</code> syntax. Here’s an example of an object using object literals:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Creating an object representing a product</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product <span class="op">=</span> {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Laptop"</span><span class="op">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">price</span><span class="op">:</span> <span class="dv">1200</span><span class="op">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">inStock</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing object properties</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product<span class="op">.</span><span class="at">name</span>)<span class="op">;</span>  <span class="co">// Output: Laptop</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product<span class="op">.</span><span class="at">price</span>)<span class="op">;</span> <span class="co">// Output: 1200</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product<span class="op">.</span><span class="at">inStock</span>)<span class="op">;</span> <span class="co">// Output: true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Objects are a fundamental part of JavaScript, and they allow you to store multiple pieces of related data, such as key-value pairs, under one roof. In this tutorial, we will explore how to create and work with objects, access and manipulate their data, and use some of the most useful built-in methods for objects. We’ll also cover how to work with arrays inside objects and demonstrate the <code>sort()</code> method along with other helpful object-related methods.</p>
+<section id="what-are-javascript-objects" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-javascript-objects">What Are JavaScript Objects?</h2>
+<p>In JavaScript, an object is a collection of properties, where each property is a key-value pair. The key is a string (or Symbol) and the value can be anything, such as a string, number, array, or another object.</p>
+<section id="syntax" class="level3">
+<h3 class="anchored" data-anchor-id="syntax">Syntax:</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> objectName <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">key1</span><span class="op">:</span> value1<span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">key2</span><span class="op">:</span> value2<span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">key3</span><span class="op">:</span> value3</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
+<section id="example-1-basic-object-structure" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-basic-object-structure">Example 1: Basic Object Structure</h2>
+<p>In a business setting, you might have an object representing an employee with details like their name, position, and salary.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> employee <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"John Doe"</span><span class="op">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">position</span><span class="op">:</span> <span class="st">"Software Engineer"</span><span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">salary</span><span class="op">:</span> <span class="dv">80000</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">department</span><span class="op">:</span> <span class="st">"Development"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employee<span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// Accessing property: "John Doe"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employee<span class="op">.</span><span class="at">salary</span>)<span class="op">;</span> <span class="co">// Accessing property: 80000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="explanation" class="level3">
 <h3 class="anchored" data-anchor-id="explanation">Explanation:</h3>
 <ul>
-<li><strong>Object Literal Syntax</strong>: We define an object by using curly braces <code>{}</code> and specifying properties inside as key-value pairs.</li>
-<li><strong>Accessing Properties</strong>: We use the dot notation (<code>object.property</code>) to access individual properties of the object. You can also use bracket notation (<code>object['property']</code>), which is useful for dynamic property names.</li>
+<li><strong>Key-Value Pairs</strong>: Each property in the <code>employee</code> object is represented by a key (e.g., <code>name</code>, <code>position</code>, <code>salary</code>) and its corresponding value (e.g., <code>"John Doe"</code>, <code>"Software Engineer"</code>, <code>80000</code>).</li>
+<li><strong>Dot Notation</strong>: You can access the properties of the object using dot notation (<code>employee.name</code>).</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="modifying-and-adding-properties" class="level2">
-<h2 class="anchored" data-anchor-id="modifying-and-adding-properties">Modifying and Adding Properties</h2>
-<p>You can easily modify an existing property or add new ones to an object.</p>
-<section id="example-modifying-and-adding-properties" class="level3">
-<h3 class="anchored" data-anchor-id="example-modifying-and-adding-properties">Example: Modifying and Adding Properties</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modify existing property</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>product<span class="op">.</span><span class="at">price</span> <span class="op">=</span> <span class="dv">1100</span><span class="op">;</span> <span class="co">// Applying a discount</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Add a new property</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>product<span class="op">.</span><span class="at">category</span> <span class="op">=</span> <span class="st">"Electronics"</span><span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product<span class="op">.</span><span class="at">price</span>)<span class="op">;</span>  <span class="co">// Output: 1100</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product<span class="op">.</span><span class="at">category</span>)<span class="op">;</span> <span class="co">// Output: Electronics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<section id="example-2-arrays-inside-objects" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-arrays-inside-objects">Example 2: Arrays Inside Objects</h2>
+<p>Objects can contain arrays as property values. Let’s extend the employee example to include an array of skills that the employee possesses.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> employee <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"John Doe"</span><span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">position</span><span class="op">:</span> <span class="st">"Software Engineer"</span><span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">salary</span><span class="op">:</span> <span class="dv">80000</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">skills</span><span class="op">:</span> [<span class="st">"JavaScript"</span><span class="op">,</span> <span class="st">"React"</span><span class="op">,</span> <span class="st">"Node.js"</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employee<span class="op">.</span><span class="at">skills</span>)<span class="op">;</span> <span class="co">// Accessing the array: ["JavaScript", "React", "Node.js"]</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employee<span class="op">.</span><span class="at">skills</span>[<span class="dv">0</span>])<span class="op">;</span> <span class="co">// Accessing an element inside the array: "JavaScript"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="explanation-1" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-1">Explanation:</h3>
 <ul>
-<li><strong>Modifying a Property</strong>: We simply assign a new value to an existing property.</li>
-<li><strong>Adding a New Property</strong>: You can add new properties to an object dynamically, even after the object has been created.</li>
+<li><strong>Array Inside Object</strong>: The <code>skills</code> property is an array, which holds multiple values.</li>
+<li><strong>Accessing Array Elements</strong>: You can access the entire <code>skills</code> array by using <code>employee.skills</code>. To access a specific skill, use the index (<code>employee.skills[0]</code> for “JavaScript”).</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="using-methods-in-objects" class="level2">
-<h2 class="anchored" data-anchor-id="using-methods-in-objects">Using Methods in Objects</h2>
-<p>A <strong>method</strong> in JavaScript is a function stored as a property inside an object. Methods allow you to perform actions related to the object.</p>
-<section id="example-defining-methods-in-an-object" class="level3">
-<h3 class="anchored" data-anchor-id="example-defining-methods-in-an-object">Example: Defining Methods in an Object</h3>
-<p>Let’s say you’re managing an online store and you want to define a product object that includes methods to perform actions, such as calculating a discount and displaying product details.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Product object with methods</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> productWithMethods <span class="op">=</span> {</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Smartphone"</span><span class="op">,</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">price</span><span class="op">:</span> <span class="dv">700</span><span class="op">,</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">inStock</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Method to apply a discount</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">applyDiscount</span><span class="op">:</span> <span class="kw">function</span>(discountRate) {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    productWithMethods<span class="op">.</span><span class="at">price</span> <span class="op">=</span> productWithMethods<span class="op">.</span><span class="at">price</span> <span class="op">-</span> (productWithMethods<span class="op">.</span><span class="at">price</span> <span class="op">*</span> discountRate)<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> productWithMethods<span class="op">.</span><span class="at">price</span><span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Method to display product details</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">displayDetails</span><span class="op">:</span> <span class="kw">function</span>() {</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`Product: </span><span class="sc">${</span>productWithMethods<span class="op">.</span><span class="at">name</span><span class="sc">}\n</span><span class="vs">Price: $</span><span class="sc">${</span>productWithMethods<span class="op">.</span><span class="at">price</span><span class="sc">}\n</span><span class="vs">In Stock: </span><span class="sc">${</span>productWithMethods<span class="op">.</span><span class="at">inStock</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Using the methods</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>productWithMethods<span class="op">.</span><span class="fu">applyDiscount</span>(<span class="fl">0.1</span>)<span class="op">;</span> <span class="co">// Applying 10% discount</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(productWithMethods<span class="op">.</span><span class="fu">displayDetails</span>())<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-object-methods" class="level2">
+<h2 class="anchored" data-anchor-id="using-object-methods">Using Object Methods</h2>
+<p>JavaScript provides several useful methods for working with objects. These methods allow you to manipulate, query, and transform object data in a straightforward manner.</p>
+<section id="example-3-object.keys-and-object.values" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-object.keys-and-object.values">Example 3: <code>Object.keys()</code> and <code>Object.values()</code></h3>
+<p>The <code>Object.keys()</code> method returns an array of an object’s keys, and <code>Object.values()</code> returns an array of the object’s values.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Laptop"</span><span class="op">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">brand</span><span class="op">:</span> <span class="st">"Dell"</span><span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">price</span><span class="op">:</span> <span class="dv">1200</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">stock</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(product))<span class="op">;</span> <span class="co">// ["name", "brand", "price", "stock"]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Object</span><span class="op">.</span><span class="fu">values</span>(product))<span class="op">;</span> <span class="co">// ["Laptop", "Dell", 1200, 30]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explanation-2" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-2">Explanation:</h3>
 <ul>
-<li><strong>Methods in Objects</strong>: Methods are defined just like properties, but their values are functions. The <code>applyDiscount</code> method takes a <code>discountRate</code> and updates the <code>price</code> property of the object.</li>
-<li><strong>Calling Methods</strong>: You can call methods using dot notation (<code>object.method()</code>), just like accessing properties.</li>
+<li><strong><code>Object.keys()</code></strong>: This method returns an array containing all the keys of the object. In this case, the keys are <code>name</code>, <code>brand</code>, <code>price</code>, and <code>stock</code>.</li>
+<li><strong><code>Object.values()</code></strong>: This method returns an array containing the corresponding values of the object’s keys, such as <code>"Laptop"</code>, <code>"Dell"</code>, <code>1200</code>, and <code>30</code>.</li>
 </ul>
 <hr>
 </section>
-</section>
-<section id="working-with-nested-objects" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-nested-objects">Working with Nested Objects</h2>
-<p>Objects in JavaScript can also contain other objects, known as nested objects. This is useful in real-world scenarios where an entity (like an order) contains multiple related entities (like customer information and items).</p>
-<section id="example-working-with-nested-objects" class="level3">
-<h3 class="anchored" data-anchor-id="example-working-with-nested-objects">Example: Working with Nested Objects</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> order <span class="op">=</span> {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">orderID</span><span class="op">:</span> <span class="dv">12345</span><span class="op">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">customer</span><span class="op">:</span> {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Jane Smith"</span><span class="op">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">email</span><span class="op">:</span> <span class="st">"jane.smith@example.com"</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">items</span><span class="op">:</span> [</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">productName</span><span class="op">:</span> <span class="st">"Laptop"</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">1200</span> }<span class="op">,</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">productName</span><span class="op">:</span> <span class="st">"Mouse"</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">25</span> }</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Method to calculate total order value</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">calculateTotal</span><span class="op">:</span> <span class="kw">function</span>() {</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> order<span class="op">.</span><span class="at">items</span><span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> item) <span class="kw">=&gt;</span> total <span class="op">+</span> item<span class="op">.</span><span class="at">price</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Method to display order summary</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">displaySummary</span><span class="op">:</span> <span class="kw">function</span>() {</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`Order ID: </span><span class="sc">${</span>order<span class="op">.</span><span class="at">orderID</span><span class="sc">}\n</span><span class="vs">Customer: </span><span class="sc">${</span>order<span class="op">.</span><span class="at">customer</span><span class="op">.</span><span class="at">name</span><span class="sc">}\n</span><span class="vs">Total: $</span><span class="sc">${</span>order<span class="op">.</span><span class="fu">calculateTotal</span>()<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">// Display order summary</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(order<span class="op">.</span><span class="fu">displaySummary</span>())<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-4-object.entries" class="level3">
+<h3 class="anchored" data-anchor-id="example-4-object.entries">Example 4: <code>Object.entries()</code></h3>
+<p>The <code>Object.entries()</code> method returns an array of the object’s key-value pairs as arrays.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Laptop"</span><span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">brand</span><span class="op">:</span> <span class="st">"Dell"</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">price</span><span class="op">:</span> <span class="dv">1200</span><span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">stock</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(product))<span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Output: [["name", "Laptop"], ["brand", "Dell"], ["price", 1200], ["stock", 30]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explanation-3" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-3">Explanation:</h3>
 <ul>
-<li><strong>Nested Object</strong>: The <code>customer</code> property is itself an object, containing customer details like <code>name</code> and <code>email</code>.</li>
-<li><strong>Array of Objects</strong>: The <code>items</code> property is an array of objects, each representing a product in the order.</li>
-<li><strong>Using Methods with Nested Data</strong>: The <code>calculateTotal</code> method uses <code>reduce()</code> to sum up the prices of items in the <code>items</code> array.</li>
+<li><strong><code>Object.entries()</code></strong>: This method converts the object into an array of key-value pair arrays. Each key-value pair becomes an array inside a larger array.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="object-methods-object.keys-object.values-and-object.entries" class="level2">
-<h2 class="anchored" data-anchor-id="object-methods-object.keys-object.values-and-object.entries">Object Methods: <code>Object.keys()</code>, <code>Object.values()</code>, and <code>Object.entries()</code></h2>
-<p>JavaScript provides built-in methods to work with objects, such as retrieving keys, values, and key-value pairs.</p>
-<section id="example-using-object.keys-object.values-and-object.entries" class="level3">
-<h3 class="anchored" data-anchor-id="example-using-object.keys-object.values-and-object.entries">Example: Using <code>Object.keys()</code>, <code>Object.values()</code>, and <code>Object.entries()</code></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Tablet"</span><span class="op">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">price</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">inStock</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Get all keys of the object</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(product))<span class="op">;</span> <span class="co">// Output: ["name", "price", "inStock"]</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Get all values of the object</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Object</span><span class="op">.</span><span class="fu">values</span>(product))<span class="op">;</span> <span class="co">// Output: ["Tablet", 400, true]</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Get key-value pairs of the object</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(product))<span class="op">;</span> <span class="co">// Output: [["name", "Tablet"], ["price", 400], ["inStock", true]]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="sorting-with-the-sort-method" class="level2">
+<h2 class="anchored" data-anchor-id="sorting-with-the-sort-method">Sorting with the <code>sort()</code> Method</h2>
+<p>The <code>sort()</code> method is often used with arrays, but when arrays are properties of objects, sorting can be extremely useful. Let’s say you have an array of employees, and you want to sort them by salary.</p>
+<section id="example-5-sorting-an-array-of-objects" class="level3">
+<h3 class="anchored" data-anchor-id="example-5-sorting-an-array-of-objects">Example 5: Sorting an Array of Objects</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> employees <span class="op">=</span> [</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">"Alice"</span><span class="op">,</span> <span class="dt">salary</span><span class="op">:</span> <span class="dv">60000</span> }<span class="op">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">"Bob"</span><span class="op">,</span> <span class="dt">salary</span><span class="op">:</span> <span class="dv">50000</span> }<span class="op">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">"Charlie"</span><span class="op">,</span> <span class="dt">salary</span><span class="op">:</span> <span class="dv">70000</span> }</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Sorting employees by salary in ascending order</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>employees<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a<span class="op">.</span><span class="at">salary</span> <span class="op">-</span> b<span class="op">.</span><span class="at">salary</span>)<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employees)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explanation-4" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-4">Explanation:</h3>
 <ul>
-<li><strong><code>Object.keys()</code></strong>: Returns an array of the keys (property names) of an object.</li>
-<li><strong><code>Object.values()</code></strong>: Returns an array of the values of the object’s properties.</li>
-<li><strong><code>Object.entries()</code></strong>: Returns an array of key-value pairs, where each pair is an array with two elements (the key and its value).</li>
+<li><strong><code>sort()</code></strong>: The <code>sort()</code> method sorts the elements of the array in place. It uses a comparator function to determine the sorting logic.</li>
+<li><strong>Comparator Function</strong>: In this example, the comparator <code>(a, b) =&gt; a.salary - b.salary</code> compares the <code>salary</code> values of each employee object. This sorts the employees by salary in ascending order.</li>
+<li><strong>Modifies Original Array</strong>: Note that <code>sort()</code> modifies the original array. If you want to keep the original array, you should create a copy before sorting.</li>
 </ul>
 <hr>
 </section>
+<section id="example-6-sorting-with-sort-in-descending-order" class="level3">
+<h3 class="anchored" data-anchor-id="example-6-sorting-with-sort-in-descending-order">Example 6: Sorting with <code>sort()</code> in Descending Order</h3>
+<p>To sort by salary in descending order, simply reverse the comparison in the comparator function.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>employees<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">salary</span> <span class="op">-</span> a<span class="op">.</span><span class="at">salary</span>)<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(employees)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="using-object-destructuring" class="level2">
-<h2 class="anchored" data-anchor-id="using-object-destructuring">Using Object Destructuring</h2>
-<p>Object destructuring is a syntax that allows you to unpack values from an object into variables, making it easier to work with complex objects.</p>
-<section id="example-destructuring-an-object" class="level3">
-<h3 class="anchored" data-anchor-id="example-destructuring-an-object">Example: Destructuring an Object</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> customer <span class="op">=</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Alice Johnson"</span><span class="op">,</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">email</span><span class="op">:</span> <span class="st">"alice.johnson@example.com"</span><span class="op">,</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">phone</span><span class="op">:</span> <span class="st">"123-456-7890"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Destructuring object properties</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> { name<span class="op">,</span> email<span class="op">,</span> phone } <span class="op">=</span> customer<span class="op">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Customer Name: </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Customer Email: </span><span class="sc">${</span>email<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Customer Phone: </span><span class="sc">${</span>phone<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="accessing-nested-arrays-inside-objects" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-nested-arrays-inside-objects">Accessing Nested Arrays Inside Objects</h2>
+<p>Sometimes, objects contain arrays, and those arrays themselves can contain objects. Let’s explore how to navigate through this structure.</p>
+<section id="example-7-nested-arrays-of-objects" class="level3">
+<h3 class="anchored" data-anchor-id="example-7-nested-arrays-of-objects">Example 7: Nested Arrays of Objects</h3>
+<p>Imagine you’re managing a project and you want to track the team’s performance by evaluating tasks completed by each team member.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> project <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">"Website Redesign"</span><span class="op">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">team</span><span class="op">:</span> [</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">"Alice"</span><span class="op">,</span> <span class="dt">tasksCompleted</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">"Bob"</span><span class="op">,</span> <span class="dt">tasksCompleted</span><span class="op">:</span> <span class="dv">3</span> }<span class="op">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">"Charlie"</span><span class="op">,</span> <span class="dt">tasksCompleted</span><span class="op">:</span> <span class="dv">8</span> }</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing the array of team members</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(project<span class="op">.</span><span class="at">team</span>)<span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing a specific team member's details</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(project<span class="op">.</span><span class="at">team</span>[<span class="dv">1</span>]<span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// Bob</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(project<span class="op">.</span><span class="at">team</span>[<span class="dv">2</span>]<span class="op">.</span><span class="at">tasksCompleted</span>)<span class="op">;</span> <span class="co">// 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explanation-5" class="level3">
 <h3 class="anchored" data-anchor-id="explanation-5">Explanation:</h3>
 <ul>
-<li><strong>Object Destructuring</strong>: The <code>{ name, email, phone }</code> syntax allows us to extract properties from the <code>customer</code> object and assign them to variables with the same name.</li>
-<li><strong>Simplified Code</strong>: This technique reduces the amount of repetitive code when accessing multiple properties of an object.</li>
+<li><strong>Array of Objects</strong>: The <code>team</code> property contains an array of objects, with each object representing a team member and their respective completed tasks.</li>
+<li><strong>Accessing Data</strong>: To access specific data within this nested structure, you first access the <code>team</code> array (<code>project.team</code>), then you use the index to get individual team members (<code>project.team[1]</code>) and their properties (<code>project.team[1].name</code>).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="other-useful-methods-for-working-with-objects" class="level2">
+<h2 class="anchored" data-anchor-id="other-useful-methods-for-working-with-objects">Other Useful Methods for Working with Objects</h2>
+<section id="object.assign" class="level3">
+<h3 class="anchored" data-anchor-id="object.assign">1. <code>Object.assign()</code></h3>
+<p><code>Object.assign()</code> is used to copy the values of all enumerable properties from one or more source objects to a target object. This is often used for merging objects.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> productDetails <span class="op">=</span> { <span class="dt">name</span><span class="op">:</span> <span class="st">"Smartphone"</span><span class="op">,</span> <span class="dt">brand</span><span class="op">:</span> <span class="st">"Apple"</span> }<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> pricingDetails <span class="op">=</span> { <span class="dt">price</span><span class="op">:</span> <span class="dv">999</span><span class="op">,</span> <span class="dt">discount</span><span class="op">:</span> <span class="dv">10</span> }<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Merging objects</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> fullProduct <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">assign</span>({}<span class="op">,</span> productDetails<span class="op">,</span> pricingDetails)<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(fullProduct)<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Output: { name: "Smartphone", brand: "Apple", price: 999, discount: 10 }</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explanation-6" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-6">Explanation:</h3>
+<ul>
+<li><strong><code>Object.assign()</code></strong>: Creates a new object by copying properties from <code>productDetails</code> and <code>pricingDetails</code> into a new object.</li>
+<li><strong>Non-destructive</strong>: This method doesn’t modify the original objects, preserving immutability.</li>
+</ul>
+<hr>
+</section>
+<section id="object.freeze" class="level3">
+<h3 class="anchored" data-anchor-id="object.freeze">2. <code>Object.freeze()</code></h3>
+<p><code>Object.freeze()</code> freezes an object, preventing any changes to it. Properties cannot be added, removed, or modified.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product <span class="op">=</span> { <span class="dt">name</span><span class="op">:</span> <span class="st">"Laptop"</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">1200</span> }<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">freeze</span>(product)<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>product<span class="op">.</span><span class="at">price</span> <span class="op">=</span> <span class="dv">1000</span><span class="op">;</span> <span class="co">// This will not work, the object is frozen</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product)<span class="op">;</span> <span class="co">// { name: "Laptop", price: 1200 }</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explanation-7" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-7">Explanation:</h3>
+<ul>
+<li><strong><code>Object.freeze()</code></strong>: Freezes the <code>product</code> object, making it immutable. Any attempts to change the object are ignored.</li>
+</ul>
+<hr>
+</section>
+<section id="object.seal" class="level3">
+<h3 class="anchored" data-anchor-id="object.seal">3. <code>Object.seal()</code></h3>
+<p><code>Object.seal()</code> prevents the addition or removal of properties from an object but allows modification of existing properties.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> product <span class="op">=</span> { <span class="dt">name</span><span class="op">:</span> <span class="st">"Laptop"</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">1200</span> }<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="fu">seal</span>(product)<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>product<span class="op">.</span><span class="at">price</span> <span class="op">=</span> <span class="dv">1000</span><span class="op">;</span> <span class="co">// This works, since we're modifying an existing property</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">delete</span> product<span class="op">.</span><span class="at">name</span><span class="op">;</span>  <span class="co">// This will not work</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(product)<span class="op">;</span> <span class="co">// { name: "Laptop", price: 1000 }</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="explanation-8" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-8">Explanation:</h3>
+<ul>
+<li><strong><code>Object.seal()</code></strong>: Seals the object so that no new properties can be added or removed, but allows modifications to existing properties.</li>
 </ul>
 <hr>
 </section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In JavaScript, objects are fundamental to building applications, especially in business use cases. They allow you to model real-world entities, store and manage data, and define behaviors using methods. By mastering objects, including properties, methods, and techniques like nested objects and destructuring, you can build more complex and dynamic applications.</p>
-<p><strong>Key Takeaways:</strong> 1. Objects are collections of key-value pairs. 2. Methods are functions stored in objects to define behavior. 3. Objects can be nested and can hold arrays, allowing you to model complex data structures. 4. JavaScript provides built-in methods like <code>Object.keys()</code> and <code>Object.entries()</code> for working with objects efficiently.</p>
-<p>By practicing with these examples, you will gain a deeper understanding of how to work with objects in JavaScript, a critical skill for any developer working on business applications.</p>
+<p>JavaScript objects are powerful tools for organizing and managing data in key-value pairs. In this tutorial, we explored how to:</p>
+<ul>
+<li><p>Create and access objects and their properties.</p></li>
+<li><p>Work with arrays inside objects.</p></li>
+<li><p>Use methods like <code>Object.keys()</code>, <code>Object.values()</code>, <code>Object.entries()</code>, and <code>sort()</code> to manipulate and retrieve data from objects.</p></li>
+<li><p>Access nested arrays and objects.</p></li>
+</ul>
+<p>These methods and techniques are essential for building robust business applications that involve data manipulation and retrieval. Practice these concepts and apply them to real-world use cases to become more comfortable with working with objects in JavaScript.</p>
+<p><strong>Happy coding!</strong></p>
 </section>
 </section>
 
